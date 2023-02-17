@@ -1,0 +1,49 @@
+--Created two tables on famous celebrities 
+
+CREATE TABLE Famous_Black_Actresses (Id INTEGER PRIMARY KEY, name TEXT, recent_movie TEXT);
+
+INSERT INTO Famous_Black_Actresses VALUES 
+(1, "Angella Basset", "Black Panther: Wakanda Forever");
+INSERT INTO Famous_Black_Actresses VALUES (2, "Kerry Washington", "The school for good and evil");
+INSERT INTO Famous_Black_Actresses VALUES (3, "Viola Davis", "Woman king");
+INSERT INTO Famous_Black_Actresses VALUES (4, "Keke Palmer", "Nope");
+
+
+
+CREATE TABLE Movies (Actress_id INTEGER, movie_title TEXT, release_year INTEGER);
+
+INSERT INTO Movies VALUES (1, "Black Panther", 2018);
+INSERT INTO Movies VALUES (1, "Avengers: Endgame", 2019);
+INSERT INTO Movies VALUES (1, "How Stella got her groove back", 1998);
+INSERT INTO Movies VALUES (1, "Waiting to exhale", 1995);
+INSERT INTO Movies VALUES (2, "Django unchained", 2012);
+INSERT INTO Movies VALUES (2, "American Son", 2019);
+INSERT INTO Movies VALUES (2, "The prom", 2020);
+INSERT INTO Movies VALUES (2, "Save the last dance", 2021);
+INSERT INTO Movies VALUES (3, "The Help", 2011);
+INSERT INTO Movies VALUES (3, "Suicide Squad", 2016);
+INSERT INTO Movies VALUES (3, "Lila and Eve", 2015);
+INSERT INTO Movies VALUES (3, "Fences", 2016);
+INSERT INTO Movies VALUES (4, "Lightyear", 2022);
+INSERT INTO Movies VALUES (4, "Hustlers", 2019);
+INSERT INTO Movies VALUES (4, "Alice", 2019);
+INSERT INTO Movies VALUES (4, "Joyful Noise", 2012);
+
+--Utilized innerJOIN Query to combine the two above table to showcase each actress alonside their movie titles
+
+SELECT Famous_Black_Actresses.name, Famous_Black_Actresses.recent_movie, Movies.movie_title
+FROM Famous_Black_Actresses
+JOIN Movies
+ON Famous_Black_Actresses.id = Movies.Actress_id;
+
+-- Created an additional query that showcased only the movie titles of "Keke Palmer" using the JOIN combined with WHERE 
+
+SELECT Famous_Black_Actresses.name, Famous_Black_Actresses.recent_movie, Movies.movie_title
+FROM Famous_Black_Actresses
+JOIN Movies
+ON Famous_Black_Actresses.id = Movies.Actress_id
+WHERE Famous_Black_Actresses.name = "Keke Palmer";
+
+
+
+
