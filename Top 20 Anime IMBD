@@ -1,0 +1,72 @@
+/* Source: http://www.imdb.com/list/ls057577566/ */
+
+--Created a data set using advanced SELECT queries
+
+CREATE TABLE top_20_anime (title TEXT,genre TEXT, number_episodes INTEGER, run_time INTEGER, rating INTEGER, release_year INTEGER);
+
+INSERT INTO top_20_anime VALUES (
+"cowboy bebop", "adventure", 26, 8.9, 1440, 1998 - 1999);
+INSERT INTO top_20_anime VALUES (
+"steins gate", "drama", 24, 8.8, 1440, 2011 - 2015);
+INSERT INTO top_20_anime VALUES (
+"rurouni kenshin: trust and betrayal", "adventure", 4, 8.6, 7080, 1999);
+INSERT INTO top_20_anime VALUES (
+"berserk", "adventure", 25, 8.7, 1380, 1997- 1998);
+INSERT INTO top_20_anime VALUES (
+"bacano!", "adventure", 16, 8.2, 23040, 2007 - 2008);
+INSERT INTO top_20_anime VALUES (
+"mushi-shi", "fantasy", 26, 8.5, 15-0, 2005 - 2014);
+INSERT INTO top_20_anime VALUES (
+"the rose of versailles", "drama", 40, 8.4, 1440, 1979 - 1980);
+INSERT INTO top_20_anime VALUES (
+"Ginga eiyu densetsu", "drama", 110, 9.1, 1500, 1988 - 1997);
+INSERT INTO top_20_anime VALUES (
+"now and then, here and there", "adventure", 13, 7.9, 1500, 1999 - 2000);
+INSERT INTO top_20_anime VALUES (
+"Hunter x hunter", "adventure", 148, 9, 1440, 2011 - 2014);
+INSERT INTO top_20_anime VALUES (
+"bunny drop", "drama", 11, 8.3, 1440, 2011 - 2012);
+INSERT INTO top_20_anime VALUES (
+"samurai X", "adventure", 94, 8.5, 1440, 1996 - 1998);
+INSERT INTO top_20_anime VALUES (
+"monster", "crime", 74, 8.7, 1440, 2004 - 2005);
+INSERT INTO top_20_anime VALUES (
+"Gyakkyo burai kaiji", "thriller", 26, 8.2, 1380, 2007 - 2011);
+INSERT INTO top_20_anime VALUES (
+"maison ikkoku", "drama", 96, 8.2, 1500, 1986 - 1988);
+INSERT INTO top_20_anime VALUES (
+"vinland saga", "adventure", 10, 8.8, 1440, 2019);
+INSERT INTO top_20_anime VALUES (
+"lupin the third part one", "adventure", 23, 7.9, 1380, 1971 - 1972);INSERT INTO top_20_anime VALUES (
+"death note", "crime", 37, 9, 1380, 2006 - 2007);INSERT INTO top_20_anime VALUES (
+"the irresponsible captain tylor", "comedy", 36, 7.7, 1440, 1993 - 1996);INSERT INTO top_20_anime VALUES (
+"Ghost in the shell: stand alone complex", "action", 52, 8.5, 1440, 2002 - 2005);
+
+--Sorted data by total runtime
+SELECT SUM(run_time) FROM top_20_anime;
+
+--Sorted data set by total runtime of >1500
+
+SELECT title, SUM (run_time) AS total_runtime FROM top_20_anime GROUP BY title HAVING total_runtime > 1500;
+
+--Sorted data set by realease year >1990s and runtime >1500
+
+SELECT * FROM top_20_anime WHERE release_year >1990 ORDER BY release_year AND run_time > 1500;
+
+-- Created a group of data values using CASE and COUNT (*)
+SELECT title,
+ CASE
+ WHEN rating > 9 THEN "High Rating"
+ WHEN rating > 8 THEN "Medium Rating"
+ ELSE "Low rating"
+ END as "anime_rating"
+ FROM top_20_anime;
+ 
+ SELECT COUNT (*),
+ CASE
+ WHEN rating > 9 THEN "High Rating"
+ WHEN rating > 8 THEN "Medium Rating"
+ ELSE "Low rating"
+ END as "anime_rating"
+ FROM top_20_anime
+ GROUP BY "anime_rating";
