@@ -1,0 +1,44 @@
+-- Create a Clothing Store Database
+
+--Created list of products and sorted by price, size and quantity
+/** SQL Store:
+T-Shirts ($15, small, 100)
+T-Shirts ($15, medium, 120)
+T-Shirts ($15, large, 90)
+Short sleeve shirts ($10, small, 80)
+Short sleeve shirts ($10, medium, 100)
+Short sleeve shirts ($10, large, 100)
+Long sleeve shirts ($12, small, 50)
+Long sleeve shirts ($12, medium, 70)
+Long sleeve shirts ($12, large, 70)
+Sweaters ($20, small, 50)
+Sweaters ($20, medium, 50)
+Sweaters ($20, large, 40)
+Pants ($30, small, 120)
+Pants ($30, medium, 100)
+Pants ($30, large, 90)
+**/
+
+CREATE TABLE SQLstore (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, size TEXT, quantity INTEGER);
+
+INSERT INTO SQLstore VALUES (1, "T-Shirts", 15, "small", 100);
+INSERT INTO SQLstore VALUES (2, "T-Shirts", 15, "medium", 120);
+INSERT INTO SQLstore VALUES (3, "T-Shirts", 15, "large", 90);
+INSERT INTO SQLstore Values (4, "Short sleeve shirts", 10, "small", 80);
+INSERT INTO SQLstore VALUES (5, "Short sleeve shirts", 10, "medium", 100);
+INSERT INTO SQLstore VALUES (6, "Short sleeve shirts", 10, "large", 100);
+INSERT INTO SQLstore VALUES (7, "Long sleeve shirts", 12, "small", 50);
+INSERT INTO SQLstore VALUES (8, "Long sleeve shirts", 12, "medium", 70);
+INSERT INTO SQLstore VALUES (9, "Long sleeve shirts", 12, "large", 70);
+INSERT INTO SQLstore VALUES (10, "Sweater", 20, "small", 50);
+INSERT INTO SQLstore VALUES (11, "Sweater", 20, "medium", 50);
+INSERT INTO SQLstore VALUES (12, "Sweater", 20, "large", 40);
+INSERT INTO SQLstore VALUES (13, "Pants", 30, "small", 120);
+INSERT INTO SQLstore VALUES (14, "Pants", 30, "medium", 100);
+INSERT INTO SQLstore VALUES (15, "Pants", 30, "large", 90);
+
+--Display database order by price
+SELECT * FROM SQLstore ORDER BY price;
+
+--What is the sum of items in the store 
+SELECT SUM (quantity) FROM SQLstore;
