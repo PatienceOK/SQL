@@ -1,4 +1,4 @@
---Created two tables on famous celebrities 
+--Created tables showcasing famous celebrities and their movies
 
 CREATE TABLE Famous_Black_Actresses (Id INTEGER PRIMARY KEY, name TEXT, recent_movie TEXT);
 
@@ -29,7 +29,7 @@ INSERT INTO Movies VALUES (4, "Hustlers", 2019);
 INSERT INTO Movies VALUES (4, "Alice", 2019);
 INSERT INTO Movies VALUES (4, "Joyful Noise", 2012);
 
---Utilized innerJOIN Query to combine the two above table to showcase each actress alonside their movie titles
+--Utilized innerJOIN Query to combine the two above tables to showcase each actress alonside their movie titles
 
 SELECT Famous_Black_Actresses.name, Famous_Black_Actresses.recent_movie, Movies.movie_title
 FROM Famous_Black_Actresses
