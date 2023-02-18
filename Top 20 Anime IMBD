@@ -2,7 +2,7 @@
 
 --Created a data set using advanced SELECT queries
 
-CREATE TABLE top_20_anime (title TEXT,genre TEXT, number_episodes INTEGER, run_time INTEGER, rating INTEGER, release_year INTEGER);
+CREATE TABLE top_20_anime (title TEXT,genre TEXT, number_episodes INTEGER,  rating INTEGER, run_time INTEGER, release_year INTEGER);
 
 INSERT INTO top_20_anime VALUES (
 "cowboy bebop", "adventure", 26, 8.9, 1440, 1998 - 1999);
