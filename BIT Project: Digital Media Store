@@ -1,0 +1,58 @@
+In this SQL, I'm querying a database called chinook, which represents a digital media store and includes tables for artists, albums, media tracks, invoices, and customers.
+
+1# Show Customers (their full names, customer ID, and country) who are not in the US. 
+
+select CustomerID, FirstName, LastName,Country 
+From chinook1.customers
+where Country !=USA;
+
+2# Show only the Customers from Brazil
+
+select CustomerID, FirstName, LastName,Country 
+From chinook1.customers
+where Country = Brazil; 
+
+3# Find the Invoices of customers who are from Brazil. 
+The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country.
+
+select customers.FirstName,customers.LastName, invoices.InvoiceID, invoices.InvoiceDate,
+invoices.BillingCountry
+from invoices
+left join customers
+on customers.CustomerId = invoices.CustomerId
+where invoices.BillingCountry = 'Brazil'; 
+
+4# Show the Employees who are Sales Agents.
+
+select * from employees
+where title = 'Sales Agents';
+
+5# Find a unique/distinct list of billing countries from the Invoice table.
+
+select distinct BillingCountry from invoices;
+
+6# Show the Invoice Total, Customer name, Country, and Sales Agent name for all invoices and customers.
+
+select customers.FirstName, customers.LastName, customers.Country,
+invoices.Total, employees.FirstName, employees.LastName
+from employees
+Join customers on customers.SupportRepId = employees.EmployeeId
+join invoices on invoices.CustomerId = customers.CustomerId;
+
+7# How many Invoices were there in 2009?
+
+select count(*) from invoices
+where InvoiceDate between '2009-01-01' and '2009-12-31';
+
+8# What are the total sales for 2009?
+
+select sum(total) from invoices
+where InvoiceDate between '2009-01-01' and '2009-12-31';
+
+9# Write a query that includes the purchased track name with each invoice line ID.
+
+select tracks.Name, invoice_items.InvoiceLineId
+from tracks
+join invoice_items
+on tracks.TrackId = invoice_items.TrackId;
+
