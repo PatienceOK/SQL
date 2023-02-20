@@ -1,0 +1,59 @@
+In this SQL, I created two tables that I will be querying.
+
+create table Users ( id INTEGER PRIMARY KEY AUTOINCREMENT, First_name TEXT, Last_name TEXT, username TEXT, age INTEGER, gender TEXT);
+
+create table cycle (username_id INTEGER PRIMARY KEY AUTOINCREMENT, cycle_length INTEGER, period_length INTEGER, symptoms TEXT, cravings TEXT, mood TEXT);
+
+insert into Users (First_name, Last_name, username, age, gender) values ("Sarah", "Smith", "SaSmth", 30, "F");
+insert into Users (First_name, Last_name, username, age, gender) values ("Leah", "Daniels", "DanLe", 20, "F");
+insert into Users (First_name, Last_name, username, age, gender) values ("Christine", "Joels", "JoelC", 30, "TG");
+insert into Users (First_name, Last_name, username, age, gender) values ("Anna", "Smith", "AppleSmith", 19, "F");
+insert into Users (First_name, Last_name, username, age, gender) values ("Agnes", "Kennedy", "AgnyK", 48, "TG");
+
+
+insert into cycle (cycle_length, period_length, symptoms, cravings, mood) values ( 28, 5, "cramps", "chocolate", "happy");
+insert into cycle (cycle_length, period_length, symptoms, cravings, mood) values (30, 4, "no cramps", "carbs", "sad");
+insert into cycle (cycle_length, period_length, symptoms, cravings, mood) values (24, 7, "cramps", "no cravings", "irritated");
+insert into cycle (cycle_length, period_length, symptoms, cravings, mood) values (28, 3, "migraine", "pizza", "disgusted");
+insert into cycle (cycle_length, period_length, symptoms, cravings, mood) values (28, 5, "cramps", "pasta", "Ok");
+
+select * from users;
+
+select * from cycle;
+
+1# Modified data base by adding a new column to the cycle table.
+
+alter table cycle 
+add "date_of_period" INTEGER;
+
+select * from cycle;
+
+2# Updated the above data by adding dates to each respective user.
+
+update cycle
+set date_of_period = '2023-19-2'
+where username_id = 1;
+
+update cycle
+set date_of_period = '2023-14-2'
+where username_id = 2;
+
+update cycle
+set date_of_period = '2023-1-2'
+where username_id = 3;
+
+update cycle
+set date_of_period = '2023-11-2'
+where username_id = 4;
+
+update cycle
+set date_of_period = '2023-18-2'
+where username_id = 5;
+
+select * from cycle;
+
+3# Deleted data from the above database using the "delete" query.
+
+delete from Users where id=5;
+
+select * from Users;
